@@ -26,7 +26,11 @@ class Pulsatio {
                 hostname: this.options.hostname
             }
 
-            fetch(url, { method: 'POST', body: JSON.stringify(data) }).then((response) => {
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: new Headers({ 'content-type': 'application/json' })
+            }).then((response) => {
                 response.json().then((body) => {
                     if (body && body.id) {
                         this.options.id = body.id
@@ -52,7 +56,11 @@ class Pulsatio {
             ip: this.options.ip
         }
 
-        fetch(url, { method: 'PUT', body: JSON.stringify(data) }).then((response) => {
+        fetch(url, {
+            method: 'PUT',
+            body: JSON.stringify(data),
+            headers: new Headers({ 'content-type': 'application/json' })
+        }).then((response) => {
             if (response && response.status !== 404) {
                 this.disconnected = null
                 delete this.disconnected
