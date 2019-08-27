@@ -2,7 +2,8 @@
   "name": "pulsat.io-js",
   "version": "1.0.0",
   "description": "Browser client for @pulsat.io",
-  "main": "src/index.js",
+  "main": "dist/pulsatio.js",
+  "module": "dist/pulsatio.js",
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "webpack -p"
