@@ -1,0 +1,31 @@
+{
+  "name": "pulsat.io-js",
+  "version": "1.0.0",
+  "description": "Browser client for @pulsat.io",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "build": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roquef/pulsat.io-js.git"
+  },
+  "keywords": [
+    "heartbeat",
+    "pulsat.io"
+  ],
+  "author": "myTapp - Draft Beer System",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/roquef/pulsat.io-js/issues"
+  },
+  "homepage": "https://github.com/roquef/pulsat.io-js#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "terser-webpack-plugin": "^1.3.0",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  }
+}

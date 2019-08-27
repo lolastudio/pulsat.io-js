@@ -1,0 +1,13 @@
+<script src="./dist/pulsatio.js"></script>
+<script>
+    var pc = new Pulsatio({
+        id: 'imx7-1',
+        interval: 5000,
+        url: 'http://dev.mytapp.com.br',
+        on: {
+            connection: (data) => {
+                console.log(data);
+            }
+        }
+    });
+</script>
