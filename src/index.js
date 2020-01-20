@@ -5,7 +5,8 @@ class Pulsatio {
             url: 'http://localhost:4200',
             interval: 30 * 1000,
             interval_timeout: 1.1,
-            on: {}
+            on: {},
+            data: {}
         }
 
         options = Object.assign(defaults, options)
@@ -23,7 +24,8 @@ class Pulsatio {
                 id: this.options.id,
                 ip: this.options.ip,
                 interval: this.options.interval,
-                hostname: this.options.hostname
+                hostname: this.options.hostname,
+                ...this.options.data
             }
 
             fetch(url, {
