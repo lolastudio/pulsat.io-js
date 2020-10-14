@@ -1,6 +1,13 @@
 class Pulsatio {
     constructor(options = {}) {
-        let defaults = {
+        this.options = Object.assign(this.default, options)
+        this.sendHeartbeat = this.sendHeartbeat.bind(this)
+        this.connect = this.connect.bind(this)
+        this.connect()
+    }
+
+    get default() {
+        return {
             port: 4200,
             url: 'http://localhost:4200',
             interval: 30 * 1000,
@@ -8,13 +15,6 @@ class Pulsatio {
             on: {},
             data: {}
         }
-
-        options = Object.assign(defaults, options)
-        this.options = options
-
-        this.sendHeartbeat = this.sendHeartbeat.bind(this)
-        this.connect = this.connect.bind(this)
-        this.connect()
     }
 
     connect() {
@@ -52,6 +52,9 @@ class Pulsatio {
             }).catch(err => {
                 setTimeout(this.connect, this.options.interval)
             })
+        }
+        else {
+            console.log('No url');
         }
     }
 
