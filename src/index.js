@@ -46,8 +46,11 @@ class Pulsatio {
                     else {
                         setTimeout(this.connect, this.options.interval)
                     }
+                }).catch(err => {
+                    setTimeout(this.connect, this.options.interval)
                 })
-
+            }).catch(err => {
+                setTimeout(this.connect, this.options.interval)
             })
         }
     }
@@ -72,6 +75,9 @@ class Pulsatio {
                 this.disconnected = true
                 this.connect()
             }
+        }).catch(err => {
+            this.disconnected = true
+            this.connect()
         })
     }
 
