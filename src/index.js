@@ -73,9 +73,7 @@ class Pulsatio {
             response.json().then((body) => {
                 this.last_message_id = (body || {})._message_id;
                 if (this.options.on.heartbeat) { this.options.on.heartbeat(body); }
-            }).catch(err => {
-                console.log(err);
-            })
+            }).catch(err => { })
 
             if (response && response.status !== 404) {
                 this.disconnected = null
