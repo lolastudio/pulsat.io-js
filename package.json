@@ -1,6 +1,6 @@
 {
   "name": "pulsat.io-js",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Browser client for @pulsat.io",
   "main": "lib/index.js",
   "scripts": {
