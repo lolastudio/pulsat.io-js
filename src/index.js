@@ -61,7 +61,8 @@ class Pulsatio {
     sendHeartbeat() {
         let url = `${this.options.url}/nodes/${this.options.id}`
         let data = {
-            ip: this.options.ip
+            ip: this.options.ip,
+            _message_id: this.last_message_id
         }
 
         fetch(url, {
@@ -69,6 +70,13 @@ class Pulsatio {
             body: JSON.stringify(data),
             headers: new Headers({ 'content-type': 'application/json' })
         }).then((response) => {
+            response.json().then((body) => {
+                this.last_message_id = (body || {})._message_id;
+                if (this.options.on.heartbeat) { this.options.on.heartbeat(body); }
+            }).catch(err => {
+                console.log(err);
+            })
+
             if (response && response.status !== 404) {
                 this.disconnected = null
                 delete this.disconnected
