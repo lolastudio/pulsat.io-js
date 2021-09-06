@@ -71,7 +71,10 @@ class Pulsatio {
             headers: new Headers({ 'content-type': 'application/json' })
         }).then((response) => {
             response.json().then((body) => {
-                this.last_message_id = (body || {})._message_id;
+                if (body && body._message_id) {
+                    this.last_message_id = body._message_id;
+                }
+                
                 if (this.options.on.heartbeat) { this.options.on.heartbeat(body); }
             }).catch(err => {
                 if (this.options.on.heartbeat) { this.options.on.heartbeat(); }
